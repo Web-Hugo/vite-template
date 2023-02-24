@@ -1,0 +1,8 @@
+/* 全局 css 变量 */
+
+:root{
+  --el-color-primary: #409EFF;
+}
+
+
+$primary-color: var(--el-color-primary);

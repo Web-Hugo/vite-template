@@ -1,9 +1,36 @@
-# Vue 3 + Vite
+# 书刊 Web Pc
 
-书刊web网站
+### 介绍 📖
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+技术栈 Vue3.2、JavaScript、Vite4、Pinia、Element-Plus
 
-## Recommended IDE Setup
+包管理器 pnpm
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- **Install：**
+
+```text
+npm install
+
+# npm install 安装失败，请升级 nodejs 到 16 以上，或尝试使用以下命令：
+npm install --registry=https://registry.npm.taobao.org
+```
+
+- **Run：**
+
+```text
+npm run dev
+npm run serve
+```
+
+- **Build：**
+
+```text
+# 开发环境
+npm run build:dev
+
+# 测试环境
+npm run build:test
+
+# 生产环境
+npm run build:pro
+```
