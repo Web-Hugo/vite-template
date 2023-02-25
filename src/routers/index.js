@@ -1,14 +1,29 @@
 import { createRouter, createWebHashHistory, createWebHistory } from "vue-router";
 import NProgress from "@/config/nprogress";
+import { initDynamicRouter } from "@/routers/modules/dynamicRouter";
+import {errorRouter,staticRouter} from "./modules/default";
 
-// layouts
-import { setupLayouts } from 'virtual:generated-layouts'
-import generatedRoutes from 'virtual:generated-pages'
-const routes = setupLayouts(generatedRoutes)
+let isMount = false;
 
+/**
+ * @description 动态路由参数配置简介 📚
+ * @param path ==> 菜单路径
+ * @param name ==> 菜单别名
+ * @param redirect ==> 重定向地址
+ * @param component ==> 视图文件路径
+ * @param meta ==> 菜单信息
+ * @param meta.icon ==> 菜单图标
+ * @param meta.title ==> 菜单标题
+ * @param meta.activeMenu ==> 当前路由为详情页时，需要高亮的菜单
+ * @param meta.isLink ==> 是否外链
+ * @param meta.isHide ==> 是否隐藏
+ * @param meta.isFull ==> 是否全屏(示例：数据大屏页面)
+ * @param meta.isAffix ==> 是否固定在 tabs nav
+ * @param meta.isKeepAlive ==> 是否缓存
+ * */
 const router = createRouter({
 	history: createWebHashHistory(),
-	routes: routes,
+	routes: [...staticRouter,...errorRouter],
 	strict: false,
 	scrollBehavior: () => ({ left: 0, top: 0 })
 });
@@ -19,10 +34,12 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
 	// 1.NProgress 开始
 	NProgress.start();
-	// // 2.动态设置标题
-	// const title = import.meta.env.VITE_GLOB_APP_TITLE;
-	// document.title = to.meta.title ? `${to.meta.title} - ${title}` : title;
-
+	// 2.动态设置路由
+	if (!isMount) {
+		await initDynamicRouter();
+		isMount = true;
+		return next({ ...to, replace: true });
+	}
 	next();
 });
 

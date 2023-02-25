@@ -1,0 +1,11 @@
+
+[
+  {
+    "path": "/main",
+    "name": "main",
+    "component": "/main/index",
+    "meta": {
+      "title": "首页"
+    }
+  }
+]

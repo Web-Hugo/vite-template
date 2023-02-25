@@ -1,10 +1,7 @@
 // ? 全局不动配置项 只做导出不做修改
 
 // * 首页地址（默认）
-export const HOME_URL = "/404";
-
-// * 登录页地址（默认）
-export const LOGIN_URL = "/login";
+export const HOME_URL = "/main";
 
 // * 默认主题颜色
 export const DEFAULT_PRIMARY = "#009688";

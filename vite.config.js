@@ -12,8 +12,6 @@ import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 import {Plugin as importToCDN,autoComplete} from 'vite-plugin-cdn-import'
-import Layouts from 'vite-plugin-vue-layouts'
-import Pages from 'vite-plugin-pages'
 import postcsspxtoviewport from 'postcss-px-to-viewport-8-plugin'
 
 // https://vitejs.dev/config/
@@ -57,15 +55,6 @@ export default defineConfig(({ mode })=>{
 				symbolId: "icon-[dir]-[name]"
 			}),
 
-      // https://github.com/hannoeru/vite-plugin-pages
-      Pages({
-        pagesDir: 'src/views',
-        extensions: ['page.vue'],
-        importMode: 'async',
-      }),
-
-      // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
-      Layouts(),
       // * vite 可以使用 jsx/tsx 语法
 			vueJsx(),
 
